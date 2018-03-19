@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/02/2018, 16:01:22
+    Author     : linux
+*/
+
+body{
+    
+    background: url('../img/fondo.jpg')no-repeat center center fixed;
+       
+}
+.homeTitle{
+    
+    margin-top: 15%;
+    margin-left: 4%;
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+    margin-right: 4%;
+    
+}
+.homeTitle>h1{
+    color:white;
+}
+.homeTitle>h2{
+    color:#9EE2FF;
+}
+.btn{
+   
+    background-color: #00628C;
+    color: white;
+}
+#contentReg{
+    display: flex;
+    margin: 5% 0% 5% 35%; 
+    
+}
+#contentReg>a{
+    text-decoration:none;
+    color: white;
+    padding: 3% 4% 3% 4%;
+    margin: 1% 1% 1% 1%;
+    background-color: #00628C;
+    
+}
+.contentform{
+    background-color: rgba(156, 204, 240, 0.5);
+    padding: 10% 10% 10% 10%;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 60%;
+    width: 30%;
+    margin-left: 30%
+}
+#username{
+    margin-bottom: 10%;
+}
+#password{
+    margin-bottom:5%;
+}
+.contentform> .btn, #register >div >.btn{
+    margin-bottom: 30%;
+    border: #00628C solid 1px;
+}
+#register>div{
+    display: flex !important;
+    flex-direction: column !important;
+}
+#register >div >.btn{
+    margin-bottom: 10%;
+}
+#register >div:nth-child(5){
+    margin-top: 10% 
+}

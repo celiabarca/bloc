@@ -1,0 +1,23 @@
+{# empty Twig template #}
+<html>
+    <head>
+    {# ... #}
+ 
+    {% block stylesheets %}
+        <link href="{{ asset('css/mycss.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    </head>
+     {% block body %}
+   
+    <body>
+        {% for posts in post %}
+        <div class="posts">
+            <div>{{ posts.title }}</div>
+            <div>{{ posts.contenido }}</div>
+            <div>{{ posts.fecha }}</div>
+            <div>{{ posts.user }}</div>
+        </div>
+        {% endfor %}
+    {% endblock %}
+    </body>
+</html>
