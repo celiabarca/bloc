@@ -18,14 +18,20 @@
             diseña un blog por ti mismo.</h2>
         </div>
         <div id ="contentReg">
-        <a class = "login btn" href="{{path("login")}}">Login</a>
-        <a class = "singin btn" href="{{path("logout")}}">Sing In</a>
+{#        <a class = "login btn" href="{{path("login")}}">Iniciar Sesion</a>#}
+        
+{#        <a class = "singin btn" href="{{path("logout")}}">Cerrar Sesion</a>#}
         
         
            {% if app.user %}
-               <a class = "logoin btn" href="{{path("login")}}">Login</a>
-           {% else %}
+               {{ "esta logeado" }}
                <a class = "logout btn" href="{{path("logout")}}">Logout</a>
+               <a class = "logout btn" href="{{path("btncreate")}}">Crear Post</a>
+               
+           {% else %}
+               {{ "no esta logeado" }}
+               <a class = "singin btn" href="{{path("register")}}">Registrarse</a>
+               <a class = "logoin btn" href="{{path("login")}}">Login</a>
            {% endif %}
     {% endblock %}
     </div>

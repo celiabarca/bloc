@@ -31,28 +31,32 @@ class UserController extends Controller{
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $user = new User();
-        //establishing default role and putting it active
+        //establece el rol del cliente
     	$user->setRole('ROLE_USER');
+        //activamos cliente
     	$user->setIsActived(true);
    	 
-    	//creating the form
+    	//creamos el formulario se llama RegisterType y lo metemos en una variable
     	$form = $this->createForm(RegisterType::class, $user);
-   	 
+   	//metaemos las respuestas del formulario
     	$form->handleRequest($request);
     	if ($form->isSubmitted() && $form->isValid()) {
-        	// encoding password, first we get password in plaintext and then
-	// we encode it.
+            //encriptamos la contrasenya
         	$password=$passwordEncoder->encodePassword($user, $user->getPassw());
+                //metemos la contraseña encriptada machacando la que no esta enctriptada
         	$user->setPassw($password);
+                //metemos los datos en la bbdd 
         	$entityManager = $this->getDoctrine()->getManager();
         	$entityManager->persist($user);
+                //aplicamos los cambios
         	$entityManager->flush();
        	 
-        	return $this->redirectToRoute('home');
+                //redirigimos a la pantalla que queramos
+        	return $this->redirectToRoute('createPost');
     	}
-    	//rendering form
+    	//emviamos el formulario al twig
     	return $this->render('user/regForm.html.twig', array(
-        	'form' => $form->createView(),
+            'form' => $form->createView(),
             'passw'=>$user->getPassw()
     	));        
     }

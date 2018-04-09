@@ -76,3 +76,8 @@ body{
 #register >div:nth-child(5){
     margin-top: 10% 
 }
+.contentform>form{
+    display: flex;
+    flex-direction: column;
+    
+}

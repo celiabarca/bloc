@@ -45,8 +45,10 @@ class Post
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
      */
     private $comments;
+   
     function __construct() {
        $this ->comments=new ArrayCollection;
+       $this -> createDate = new \DateTime('now');
       
     }
     function setId($id) {
@@ -96,7 +98,9 @@ class Post
     function getModifyDate() {
         return $this->modifyDate;
     }
-
+    function setAutor(User $user){
+        return $this->user;
+    }
 
 
 }

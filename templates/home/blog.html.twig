@@ -8,8 +8,8 @@
     {% endblock %}
     </head>
      {% block body %}
-   
-    <body>
+   {{ "Hola Mundo" }}
+    {#<body>
         {% for posts in post %}
         <div class="posts">
             <div>{{ posts.title }}</div>
@@ -17,7 +17,8 @@
             <div>{{ posts.fecha }}</div>
             <div>{{ posts.user }}</div>
         </div>
-        {% endfor %}
+        {% endfor %}#}
     {% endblock %}
+    
     </body>
 </html>
