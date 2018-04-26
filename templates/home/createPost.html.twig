@@ -23,7 +23,7 @@
 	height: 300,
         plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,i>nsertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscree>n,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups,autosave"
     });#}
-        t{#inymce.init({
+        {#inymce.init({
 	/* replace textarea having class .tinymce with tinymce editor */
 	selector: "textarea.tinymce",
 	
@@ -86,6 +86,9 @@
     <body>
         
     <div class="contentform">
+{#        {% if user %}
+           {{dump(user)}}#} 
+        {#{%endif%}#}
         <h2>Sign up, please</h2>
         {{  form_start(form)}}
         {{  form_widget(form) }}

@@ -78,6 +78,59 @@ body{
 }
 .contentform>form{
     display: flex;
+    flex-direction: column; 
+}
+.posts{
+    background-color: rgba(156, 204, 240, 0.5);
+    margin: 1% 1% 1% 1%;
+    padding: 1% 1% 1% 1%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.posts>div:nth-child(1){
+    display: flex;
+    margin: 0% 1% 1% 1%;
+width: 100%;
+}
+.posts>div:nth-child(1)>div:nth-child(1){
+    left:1px;
+}
+.posts>div:nth-child(1)>div:nth-child(2){
+    margin-left: 81%;
+}
+.posts>div:nth-child(2){
+     background-color: rgba(255, 255, 255, 0.7);
+     
+     display: flex;
+     justify-content: center;
+     padding: 0% 14% 0% 16%;
+}
+.posts>div:nth-child(3){
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    padding: 0% 14% 0% 16%;
+}
+.menu>div:nth-child(1){
+    background-color: buttonface;
+    display: flex;
+    flex-direction: row;
+}
+.menu>div:nth-child(1)>ul{
+    display: flex;
+    flex-direction: row;
+    margin-left: 8%;
+    width: 100%;
+}
+.menu>div:nth-child(1)>ul>li{
+    list-style:none;
+    margin-right: 3%;
+    
+}
+.menu>div:nth-child(1)>ul>li>a{
+    text-decoration:none;
+    color:black;
     
 }

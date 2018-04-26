@@ -1,16 +1,19 @@
+{% extends "base.html.twig" %}
 {# empty Twig template #}
 {# app/Resources/views/base.html.twig #}
-<html>
+{#<html>
     <head>
     {# ... #}
  
-    {% block stylesheets %}
+    {#{% block stylesheets %}
         <link href="{{ asset('css/mycss.css') }}" type="text/css" rel="stylesheet" />
     {% endblock %}
     </head>
      {% block body %}
    
-    <body>
+    <body>#}
+    {% block body %}
+         {{ parent() }}
         <div class="homeTitle">
         <h1>¡Crear tu blog nunca ha sido tan fácil!</h1>
         <h2>Con Webnode puedes crear un blog con look profesional en cuestión de minutos. 
@@ -23,17 +26,18 @@
 {#        <a class = "singin btn" href="{{path("logout")}}">Cerrar Sesion</a>#}
         
         
-           {% if app.user %}
+          {# {% if app.user %}
                {{ "esta logeado" }}
                <a class = "logout btn" href="{{path("logout")}}">Logout</a>
                <a class = "logout btn" href="{{path("btncreate")}}">Crear Post</a>
                
            {% else %}
-               {{ "no esta logeado" }}
+               {{ "no esta logeado" }}>
                <a class = "singin btn" href="{{path("register")}}">Registrarse</a>
                <a class = "logoin btn" href="{{path("login")}}">Login</a>
-           {% endif %}
-    {% endblock %}
+           {% endif %}#}
+
     </div>
-    </body>
-</html>
+              {% endblock %}
+ {#   </body>
+</html>#}

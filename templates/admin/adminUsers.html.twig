@@ -1,0 +1,43 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+ {% block body %}
+  {{ parent() }}
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre de Usuario</th>
+        <th>Email</th>
+        <th>ROL</th>
+        <th>Activado</th>
+      </tr>
+    </thead>
+    {% for user in users %}
+    <tbody>
+      {#{% if val !=1 %}#}
+       <tr>
+        <td> {{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        {% if user.isActived !=1 %}
+        <td>{{ "DESACTIVADO" }}</td>
+        {% else %}
+            <td>{{ "Activado" }}</td>
+        {% endif %}
+        <td><a href="{{path("editarUser", {'id': user.id}) }}">editar</a></td>
+         <td><a href="{{path("deleteUser", {'id': user.id}) }}">Borrar</a></td>
+{#        <td><a href="{{path("editarUser")}}" />EDITAR</a></td> path('acceptbill', {'id': admin.id(object) }) }}">#}
+      </tr>
+{#      {% else %}#}
+      {#<td> <input type="text" value="{{ user.username }}"/></td>
+        <td><input type="text" value="{{ user.passw }}"/></td>
+        <td><input type="text" value="{{ user.email }}"/></td>
+        <td><input type="text" value="{{ user.role }}"/></td>
+        <td><input type="text" value="{{ user.isActived }}"/></td>
+        <td><a href="{{path("editarUser"), {'id': user.id} }}" />editar</a></td>
+        #}
+{#      {% endif %}#}
+    </tbody>
+     {% endfor %}
+  </table>
+    
+ {% endblock %}

@@ -28,27 +28,48 @@ class Post
     private $cont;
     /**
      * Many post have One usuario.
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(nullable = true)
      */
     private $user;
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     *@var \DateTime
+     *@ORM\Column(name="createDate", type="datetime", nullable=true)
      */
     private $createDate;
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     *@var \DateTime
+     *@ORM\Column(name="modifyDate", type="datetime", nullable=true)
      */
     private $modifyDate;
     /**
      * One post has Many comments.
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"persist"})
      */
     private $comments;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $autor;
+//    public function __toString() {
+//        return $this -> post;
+//    }
+    
+    function setComments($comments) {
+        $this->comments = $comments;
+    }
+
+    function setAutor(User $user) {
+        $this->user = $user;
+    }
+
+//    function getAutor() {
+//        return $this->autor;
+//    }
    
     function __construct() {
        $this ->comments=new ArrayCollection;
-       $this -> createDate = new \DateTime('now');
+       $this -> createDate = new \DateTime();
       
     }
     function setId($id) {
@@ -67,7 +88,7 @@ class Post
         $this->user = $user;
     }
 
-    function setCreateDate($createDate) {
+    function setCreateDate() {
         $this->createDate = $createDate;
     }
 
@@ -87,7 +108,7 @@ class Post
         return $this->cont;
     }
 
-    function getUser() {
+    function getUser():User {
         return $this->user;
     }
 
@@ -98,9 +119,18 @@ class Post
     function getModifyDate() {
         return $this->modifyDate;
     }
-    function setAutor(User $user){
-        return $this->user;
+    function getComments() {
+        return $this->comments;
     }
+    function addComment(Comment $comment){
+        $comment->setPost($this);
+        if (!$this->comments->contains($comment)){
+            $this->comments->add($comment);
+        }
+    }
+    
+
+
 
 
 }

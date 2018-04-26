@@ -48,7 +48,8 @@ class User implements UserInterface
     private $isActived;
     /**
      * One user has Many posts.
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
+     * @ORM\JoinColumn(nullable = true)
      */
     private $posts;
     /**
@@ -94,7 +95,7 @@ class User implements UserInterface
     }
     public function getRoles()
     {
-        return array('ROLE_USER','ROLE_ADMIN');
+        return array($this->getRole());
     }
 
     public function getSalt() {

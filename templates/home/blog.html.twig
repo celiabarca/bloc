@@ -1,24 +1,36 @@
 {# empty Twig template #}
-<html>
-    <head>
+{% extends "base.html.twig" %}
+{#<html>#}
+{#    <head>#}
     {# ... #}
  
-    {% block stylesheets %}
-        <link href="{{ asset('css/mycss.css') }}" type="text/css" rel="stylesheet" />
-    {% endblock %}
-    </head>
+    
+{#    </head>#}
      {% block body %}
-   {{ "Hola Mundo" }}
-    {#<body>
+         {{ parent() }}
+  
+       
         {% for posts in post %}
         <div class="posts">
-            <div>{{ posts.title }}</div>
-            <div>{{ posts.contenido }}</div>
-            <div>{{ posts.fecha }}</div>
-            <div>{{ posts.user }}</div>
+            <div>
+                <div>{{ posts.createDate|date("m/d/Y") }}</div>
+                <div>{{ posts.user.username}}</div>
+            </div>
+                <div>
+                    <h1>{{ posts.title }}</h1>
+                </div>
+            <div>{{ posts.cont }}</div>
+            
+                {#{% if app.user %}
+                {{  form_start(form)}}
+                {{  form_end(form) }}           
+                {{  form_errors(form)}}
+               {{ render(controller('App\\Controller\\CommentController::Coments', {'id':posts.id})) }}
+            {%endif%}#}
+                <a href="{{path("openPost", {'id': posts.id}) }}">Ver Comentarios</a>
         </div>
-        {% endfor %}#}
+        {% endfor %}
     {% endblock %}
     
-    </body>
-</html>
+{#    </body>#}
+{#</html>#}

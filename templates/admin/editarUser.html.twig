@@ -1,0 +1,30 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+ {% block body %}
+  {{ parent() }}
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre de Usuario</th>
+        <th>Email</th>
+        <th>ROL</th>
+        <th>Activado</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr>
+            {{  form_start(form)}} 
+        <td>{{ form_widget(form.username) }}</td>
+        <td>{{ form_widget(form.email) }}</td>
+        <td>{{ form_widget(form.role) }}</td>
+        <td>{{ form_widget(form.isActived) }}</td>
+        <td>{{ form_widget(form.editarUsers) }}</td>  
+        {{  form_end(form) }}
+        {{ form_rest(form) }}
+      </tr>
+
+    </tbody>
+  </table>
+  
+  
+{% endblock%}

@@ -1,0 +1,21 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+ {% block body %}
+  {{ parent() }}
+  {% for post in posts %}
+        <div class="posts">
+            <div>
+                <div>{{ post.createDate|date("m/d/Y") }}</div>
+                <div>{{ post.user.username}}</div>
+            </div>
+                <div>
+                    <h1>{{ post.title }}</h1>
+                </div>
+            <div>{{ post.cont }}</div>
+            <div>
+                <a href="{{path("editarPost", {'id': post.id}) }}">editar</a>
+                <a href="{{path("deletePost", {'id': post.id}) }}">Borrar</a>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}

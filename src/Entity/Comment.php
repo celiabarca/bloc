@@ -37,6 +37,18 @@ class Comment
      * @ORM\JoinColumn(name="posts_id", referencedColumnName="id")
      */
     private $post;
+    // add your own fields
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $autor;
+    function setAutor(User $user) {
+        $this->user = $user;
+    }
+     function getUser():User {
+        return $this->user;
+    }
+
     
     function getId() {
         return $this->id;
@@ -45,11 +57,6 @@ class Comment
     function getComennt() {
         return $this->comennt;
     }
-
-    function getUser() {
-        return $this->user;
-    }
-
     function getPost() {
         return $this->post;
     }
