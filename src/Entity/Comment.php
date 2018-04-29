@@ -4,12 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 use App\Entity\Post;
 use App\Entity\User;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CommentsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
  */
 class Comment
 {
@@ -28,7 +27,7 @@ class Comment
    /**
      * Many comentarios have One usuario.
      * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
-     * @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
    /**
@@ -39,14 +38,15 @@ class Comment
     private $post;
     // add your own fields
      /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $autor;
+    
+    function getUser():User {
+        return $this->user;
+    } 
     function setAutor(User $user) {
         $this->user = $user;
-    }
-     function getUser():User {
-        return $this->user;
     }
 
     

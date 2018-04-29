@@ -152,7 +152,11 @@ class PostsController extends Controller{
          $em = $this->getDoctrine()->getEntityManager();
          $comment = new Comment();
          $form = $this->createForm(\App\Form\CommentsType::class, $comment);
+         
+         //$comments= $em->getRepository(Comment::class)->findAll(       );
          $post = $em->getRepository(Post::class)->findOneBy(array('id'=>$id));
+         
+         
          return $this->render('home/openPost.html.twig',array(
            'post'=>$post,
            'form' => $form->createView()
