@@ -27,6 +27,10 @@ class Post
      */
     private $cont;
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $tag;
+    /**
      * Many post have One usuario.
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
      * @ORM\JoinColumn(nullable = true)
@@ -47,6 +51,7 @@ class Post
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"persist"})
      */
     private $comments;
+    
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -75,6 +80,9 @@ class Post
     function setId($id) {
         $this->id = $id;
     }
+    function sesTag($tag) {
+        $this->tag = $tag;
+    }
 
     function setTitle($title) {
         $this->title = $title;
@@ -98,6 +106,9 @@ class Post
 
     function getId() {
         return $this->id;
+    }
+     function getTag() {
+        return $this->tag;
     }
 
     function getTitle() {

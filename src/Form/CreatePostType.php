@@ -22,13 +22,22 @@ class CreatePostType extends AbstractType{
                         	'class'=>'form-control'
                                 ]
                 	])
-                        ->add('cont',TextareaType::class,[
+                        ->add('cont',TextType::class,[
                     	'label'=>'Contenido',
                     	'required'=>'required',
                     	'attr'=>[
                         	'class'=>'form-control'
                                 ] 
                         ])
+                        ->add('tag',TagsInputType::class,[
+                    	'label'=>'Tag',
+                    	'required'=>'required',
+                    	'attr'=>[
+                                'data-role'=>'tagsinput',
+                        	'class'=>'form-control'
+                                ] 
+                        ])
+                        
                 	->add('createPost', SubmitType::class,
                         	['label'=>'Create',
                             	'attr'=>[

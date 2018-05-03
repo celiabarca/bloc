@@ -155,6 +155,7 @@ class PostsController extends Controller{
          
          //$comments= $em->getRepository(Comment::class)->findAll(       );
          $post = $em->getRepository(Post::class)->findOneBy(array('id'=>$id));
+         //var_dump($post);
          
          
          return $this->render('home/openPost.html.twig',array(

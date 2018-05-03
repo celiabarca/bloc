@@ -17,10 +17,15 @@
                     {{  form_start(form, {'action': path('comments',{'id':post.id}) })}}
                     {{  form_end(form) }}           
                     {{  form_errors(form)}}
-{#               {{ render(controller('App\\Controller\\CommentController::Coments', {'id':posts.id})) }}#}
-                    <a href="{{path("allComments", {'id': post.id}) }}">Todos los comentarios</a>
+                    
+                    {% for posts in post.comments %}
+                        
+                        <div class ="comments">
+                            {{ posts.user.username }}
+                            {{ posts.comennt }}
+                        </div>
+                    {% endfor %}
                 {%endif%}
-        </div>
         <div>
         
                 

@@ -51,21 +51,21 @@ class CommentController extends Controller {
      * @Route("/allComments{id}/", name="allComments")
      * 
      */
-    function allComents($id){
-        var_dump($id);
-         $em = $this->getDoctrine()->getManager();
-          //$comments= $this->getDoctrine()->getRepository(Comment::class)->find(array('posts_id'=>$id));
-         //$comments=  $em->getRepository(Comment::class)->findAll();
-         $connection=$em->getConnection();
-         $statement=$connection->prepare("SELECT * from comment where posts_id = :id");
-         $statement->bindValue('id',$id);
-         $statement->execute();
-         $results=$statement->fetchAll();
-         $post = $em->getRepository(Post::class)->findOneBy(array('id'=>$id));
-        return $this->render('home/allComents.html.twig',array(
-           'coments'=>$results,
-            'post'=>$post
-        ));
-    }
+//    function allComents($id){
+//        var_dump($id);
+//         $em = $this->getDoctrine()->getManager();
+//          //$comments= $this->getDoctrine()->getRepository(Comment::class)->find(array('posts_id'=>$id));
+//         //$comments=  $em->getRepository(Comment::class)->findAll();
+//         $connection=$em->getConnection();
+//         $statement=$connection->prepare("SELECT * from comment where posts_id = :id");
+//         $statement->bindValue('id',$id);
+//         $statement->execute();
+//         $results=$statement->fetchAll();
+//         $post = $em->getRepository(Post::class)->findOneBy(array('id'=>$id));
+//        return $this->render('home/allComents.html.twig',array(
+//           'coments'=>$results,
+//            'post'=>$post
+//        ));
+//    }
    
 }
