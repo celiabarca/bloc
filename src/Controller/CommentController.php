@@ -38,7 +38,7 @@ class CommentController extends Controller {
         	$em->flush();
         	return $this->redirectToRoute('blog');
     	}
-        return $this->render('home/blog.html.twig',array(
+        return $this->render('home/openPost.html.twig',array(
            'post'=>$posts,
             'form' => $form->createView()
        ));

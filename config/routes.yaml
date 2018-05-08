@@ -6,4 +6,16 @@ login:
     controller: App\Controller\UserController::login
 logout:
     path: /logout
-    controller: App\Controller\UserController::logout  
+    controller: App\Controller\UserController::logout
+api_list_user:
+    path: /api/user/{id}
+    controller: App\Controller\api\UserController::listUser
+    methods: [GET]
+    defaults:
+        id: null
+api_delete_post:
+    path: /api/user/{id}
+    controller: App\Controller\api\UserController::deleteUser
+    methods: [DELETE]
+    defaults:
+        id: null

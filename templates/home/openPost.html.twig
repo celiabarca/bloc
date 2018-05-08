@@ -12,17 +12,16 @@
                     <h1>{{ post.title }}</h1>
                 </div>
             <div>{{ post.cont }}</div>
-            
+            <div class="newComent">
                 {% if app.user %}
                     {{  form_start(form, {'action': path('comments',{'id':post.id}) })}}
                     {{  form_end(form) }}           
                     {{  form_errors(form)}}
-                    
-                    {% for posts in post.comments %}
-                        
+                  </div>  
+                    {% for posts in post.comments %}       
                         <div class ="comments">
-                            {{ posts.user.username }}
-                            {{ posts.comennt }}
+                            <div>{{ posts.user.username }}</div>
+                            <div>{{ posts.comennt }}</div>
                         </div>
                     {% endfor %}
                 {%endif%}

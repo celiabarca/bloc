@@ -48,7 +48,7 @@ class User implements UserInterface
     private $isActived;
     /**
      * One user has Many posts.
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user", cascade={"persist"})
      * @ORM\JoinColumn(nullable = true)
      */
     private $posts;
@@ -154,6 +154,4 @@ class User implements UserInterface
     function setPost($post) {
         $this->post = $post;
     }
-
-
 }

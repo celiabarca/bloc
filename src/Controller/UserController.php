@@ -135,6 +135,7 @@ class UserController extends Controller{
     $em = $this->getDoctrine()->getEntityManager();
     $user = $em->getRepository(User::class)->findOneBy(array('id'=>$id));
     $em->remove($user);
+    $em->persist($user);
     $em->flush();
     $users=  $em->getRepository(User::class)->findAll();
     return $this->render('admin/adminUsers.html.twig',array(

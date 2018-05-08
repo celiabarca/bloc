@@ -88,11 +88,13 @@ body{
     flex-direction: column;
     align-items: center;
     width: 50%;
+    margin-left: 365px;
 }
 .posts>div:nth-child(1){
     display: flex;
     margin: 0% 1% 1% 1%;
 width: 100%;
+
 }
 .posts>div:nth-child(1)>div:nth-child(1){
     left:1px;
@@ -112,6 +114,7 @@ width: 100%;
     display: flex;
     justify-content: center;
     padding: 0% 14% 0% 16%;
+    margin-top: 27px;
 }
 .menu>div:nth-child(1){
     background-color: buttonface;
@@ -132,5 +135,38 @@ width: 100%;
 .menu>div:nth-child(1)>ul>li>a{
     text-decoration:none;
     color:black;
+}
+.comments{
+    background: rgba(40, 70, 153, 0.6);
+    width: 100%;
+margin-top: 30px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+padding: 3px;
+}
+.comments>div{
+    display: flex;
+    justify-content: center;
+}
+.newComent{
+    width : 100%;
     
+}
+.newComent>form>div{
+    display: flex;
+    flex-direction: column;
+}
+.newComent>form>div>textarea{
+    height: 95px;
+}
+#create_post{
+    display: flex;
+    flex-direction: column;
+    
+}
+table{
+    margin-top: 30px;
+    background-color: window;
+    border: blue;
 }
